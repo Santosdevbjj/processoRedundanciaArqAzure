@@ -3,23 +3,38 @@
 
 ![Azure_Databricks01](https://github.com/user-attachments/assets/8ddea732-e045-4694-9207-87aeb9403938)
 
+---
+
+**DESCRIÇÃO:**
+Neste projeto prático, o objetivo é criar um processo completo de redundância de arquivos utilizando recursos do Microsoft Azure. 
+
+Através do Azure Data Factory, você aprenderá a configurar uma infraestrutura necessária, incluindo conexões com ambientes on-premises (via Integration Runtime), bancos de dados SQL (Azure e locais) e armazenamento em blob storage. 
+
+Aprenda o passo a passo, como criar linked services, datasets e pipelines para mover dados de uma tabela SQL on-premises para o Azure Data Lake, convertendo as informações em arquivos .TXT organizados por camadas (como raw/bronze). 
+
+O hands-on também aborda validação, publicação e execução dos pipelines, com análise de performance e boas práticas de configuração.
+
 
 
 ---
 
 
-# 🚀 Processo de Redundância de Arquivos na Azure
+**Processo de Redundância de Arquivos na Azure**
 
 Este projeto demonstra como implementar um **processo de redundância de arquivos** utilizando **Azure Data Factory**, **Self-hosted Integration Runtime**, **Azure Data Lake Storage Gen2** e **Databricks**.  
+
 O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**, convertendo-os em arquivos `.txt/.csv` organizados por camadas (`raw` e `bronze`), garantindo redundância, escalabilidade e boas práticas de integração híbrida.
 
 ---
 
-## 📌 Objetivos do Projeto
-- Criar pipelines no **Azure Data Factory** para mover dados de SQL on-premises para o Data Lake.  
-- Configurar **Self-hosted Integration Runtime (IR)** para conectar ambientes locais ao Azure.  
+ **Objetivos do Projeto**
+- Criar pipelines no **Azure Data Factory** para mover dados de SQL on-premises para o Data Lake.
+  
+- Configurar **Self-hosted Integration Runtime (IR)** para conectar ambientes locais ao Azure.
+  
 - Organizar dados em camadas (`raw` e `bronze`) para redundância e governança.  
-- Documentar e versionar todos os artefatos no GitHub.  
+- Documentar e versionar todos os artefatos no GitHub.
+  
 - Demonstrar boas práticas de segurança, parametrização e monitoramento.  
 
 ---
