@@ -1,0 +1,21 @@
+{
+  "name": "DS_ADLS_BRONZE_TXT",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "LS_ADLS",
+      "type": "LinkedServiceReference"
+    },
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobFSLocation",
+        "fileName": "@{pipeline().parameters.pTabela}_@{pipeline().parameters.pDataExecucao}.txt",
+        "folderPath": "bronze/sql_onprem/@{pipeline().parameters.pTabela}"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "quoteChar": "\"",
+      "firstRowAsHeader": true
+    }
+  }
+}
