@@ -1,0 +1,14 @@
+{
+  "name": "DS_SQL_OnPrem_Tabela",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "LS_SQL_OnPrem",
+      "type": "LinkedServiceReference"
+    },
+    "type": "SqlServerTable",
+    "typeProperties": {
+      "schema": "dbo",
+      "tableName": "@{pipeline().parameters.pTabela}"
+    }
+  }
+}
