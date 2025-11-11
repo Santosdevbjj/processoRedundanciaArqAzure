@@ -1,0 +1,9 @@
+{
+  "pipelineName": "pl_redundancia_sql_to_datalake",
+  "executionId": "12345-abcde",
+  "startTime": "2025-11-11T02:00:00Z",
+  "endTime": "2025-11-11T02:05:00Z",
+  "status": "Succeeded",
+  "rowsCopied": 3,
+  "source": "SQL_OnPrem.SampleTable",
+  "sink": "ADLS.raw
