@@ -6,6 +6,7 @@
 ---
 
 **DESCRIÇÃO:**
+
 Neste projeto prático, o objetivo é criar um processo completo de redundância de arquivos utilizando recursos do Microsoft Azure. 
 
 Através do Azure Data Factory, você aprenderá a configurar uma infraestrutura necessária, incluindo conexões com ambientes on-premises (via Integration Runtime), bancos de dados SQL (Azure e locais) e armazenamento em blob storage. 
@@ -39,7 +40,8 @@ O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**
 
 ---
 
-## 🖥️ Tecnologias Utilizadas
+ **Tecnologias Utilizadas**
+ 
 - **Azure Data Factory (ADF)** → Orquestração de pipelines.  
 - **Self-hosted Integration Runtime (IR)** → Conexão segura com SQL on-premises.  
 - **Azure Data Lake Storage Gen2 (ADLS)** → Armazenamento em camadas.  
@@ -98,7 +100,7 @@ O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**
 
 ---
 
-## ▶️ Como Executar o Projeto
+##  Como Executar o Projeto
 
 1. **Preparação no Azure**
    - Crie um **Resource Group**.  
@@ -129,7 +131,7 @@ O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**
 
 ---
 
-## 📸 Prints do Projeto
+## Prints do Projeto
 
 - Linked Services → `docs/imagens/adf_linked_services.png`  
 - Datasets → `docs/imagens/adf_datasets.png`  
@@ -137,7 +139,7 @@ O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**
 
 ---
 
-## 🛡️ Boas Práticas
+##  Boas Práticas
 - **Segurança:** Armazene segredos no Key Vault.  
 - **Governança:** Organize dados em camadas (`raw`, `bronze`).  
 - **Performance:** Ajuste paralelismo no Copy Activity.  
@@ -146,15 +148,19 @@ O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**
 
 ---
 
-## 📜 Licença
+## Licença
 Este projeto está licenciado sob a licença MIT.  
 Sinta-se livre para usar e adaptar em seus próprios projetos.
 
 ---
 
-## ✨ Conclusão
+## Conclusão
 Este projeto demonstra uma solução prática e didática para **redundância de arquivos na Azure**, integrando ambientes locais e nuvem. 
 
 Com pipelines bem estruturados, camadas de dados e documentação completa, você terá um portfólio sólido para apresentar em entrevistas e projetos reais.
 
+---
+**Autor:**
+  Sergio Santos 
 
+---
