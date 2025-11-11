@@ -1,0 +1,17 @@
+{
+  "name": "LS_ADLS",
+  "properties": {
+    "type": "AzureBlobFS",
+    "typeProperties": {
+      "url": "https://stredundancia<seu-id>.dfs.core.windows.net/",
+      "accountKey": {
+        "type": "AzureKeyVaultSecret",
+        "store": {
+          "referenceName": "LS_KeyVault",
+          "type": "LinkedServiceReference"
+        },
+        "secretName": "adls-account-key"
+      }
+    }
+  }
+}
