@@ -1,0 +1,13 @@
+{
+  "name": "LS_SQL_OnPrem",
+  "properties": {
+    "type": "SqlServer",
+    "typeProperties": {
+      "connectionString": "Server=localhost;Database=SampleDB;User Id=<usuario>;Password=<senha>;"
+    },
+    "connectVia": {
+      "referenceName": "SelfHostedIR",
+      "type": "IntegrationRuntimeReference"
+    }
+  }
+}
