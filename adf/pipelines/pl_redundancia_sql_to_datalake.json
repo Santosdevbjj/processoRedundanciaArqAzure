@@ -1,0 +1,39 @@
+{
+  "name": "pl_redundancia_sql_to_datalake",
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy_SQL_to_ADLS_RAW",
+        "type": "Copy",
+        "inputs": [
+          { "referenceName": "DS_SQL_OnPrem_Tabela", "type": "DatasetReference" }
+        ],
+        "outputs": [
+          { "referenceName": "DS_ADLS_RAW_TXT", "type": "DatasetReference" }
+        ],
+        "typeProperties": {
+          "source": { "type": "SqlSource" },
+          "sink": { "type": "DelimitedTextSink" }
+        }
+      },
+      {
+        "name": "Copy_RAW_to_BRONZE",
+        "type": "Copy",
+        "inputs": [
+          { "referenceName": "DS_ADLS_RAW_TXT", "type": "DatasetReference" }
+        ],
+        "outputs": [
+          { "referenceName": "DS_ADLS_BRONZE_TXT", "type": "DatasetReference" }
+        ],
+        "typeProperties": {
+          "source": { "type": "DelimitedTextSource" },
+          "sink": { "type": "DelimitedTextSink" }
+        }
+      }
+    ],
+    "parameters": {
+      "pTabela": { "type": "String" },
+      "pDataExecucao": { "type": "String" }
+    }
+  }
+}
