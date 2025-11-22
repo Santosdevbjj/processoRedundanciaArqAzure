@@ -160,10 +160,20 @@ Sinta-se livre para usar e adaptar em seus próprios projetos.
 ## Conclusão
 Este projeto demonstra uma solução prática e didática para **redundância de arquivos na Azure**, integrando ambientes locais e nuvem. 
 
-Com pipelines bem estruturados, camadas de dados e documentação completa, você terá um portfólio sólido para apresentar em entrevistas e projetos reais.
+
 
 ---
 **Autor:**
   Sergio Santos 
 
 ---
+
+**Contato:**
+
+[![Portfólio Sérgio Santos](https://img.shields.io/badge/Portfólio-Sérgio_Santos-111827?style=for-the-badge&logo=githubpages&logoColor=00eaff)](https://santosdevbjj.github.io/portfolio/)
+[![LinkedIn Sérgio Santos](https://img.shields.io/badge/LinkedIn-Sérgio_Santos-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/santossergioluiz) 
+
+
+---
+
+
