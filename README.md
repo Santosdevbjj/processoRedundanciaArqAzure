@@ -177,6 +177,30 @@ Processamento posterior no Databricks preparando o dado para formatos analítico
 
 ---
 
+### 📁 Descrição das Pastas
+
+• **adf/**  
+Artefatos do Azure Data Factory, incluindo pipelines, datasets, linked services e triggers responsáveis pela ingestão e orquestração dos dados.
+
+• **databricks/**  
+Notebooks PySpark utilizados para promover dados da camada Raw para Bronze, aplicando organização mínima e preparando os dados para consumo analítico.
+
+• **docs/**  
+Diagramas de arquitetura, evidências visuais do Data Factory, prints de configuração e guias de instalação do Self-hosted Integration Runtime (SHIR).
+
+• **scripts/**  
+Scripts auxiliares para criação de tabelas SQL de exemplo e automação da instalação do Self-hosted Integration Runtime.
+
+• **logs/**  
+Registros e exemplos de metadata de execução dos pipelines, utilizados para auditoria, rastreabilidade, monitoramento operacional e análise de performance.
+
+&nbsp;&nbsp;&nbsp;&nbsp;└── **samples/run_metadata_example.json**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exemplo real de metadata de execução de pipeline, contendo informações como status, duração, volume de dados processados e timestamps, fundamentais para ambientes regulados.
+
+
+---
+
+
 ▶️ **Como Executar o Projeto**
 
 > ⚠️ **Importante:**
