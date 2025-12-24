@@ -198,6 +198,35 @@ Registros e exemplos de metadata de execução dos pipelines, utilizados para au
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exemplo real de metadata de execução de pipeline, contendo informações como status, duração, volume de dados processados e timestamps, fundamentais para ambientes regulados.
 
 
+
+### 🔍 Observabilidade, Logs e Auditoria
+
+Em ambientes corporativos e regulados, a execução bem-sucedida de um pipeline não é suficiente.
+É necessário manter evidências operacionais para auditoria, análise de performance e continuidade de negócio.
+
+A pasta `logs/` contém exemplos de **metadata de execução** dos pipelines do Azure Data Factory.
+
+**Exemplo:** `logs/samples/run_metadata_example.json`
+
+Este arquivo representa o tipo de informação registrada a cada execução:
+
+- Identificação do pipeline executado
+- ID único de execução (auditável)
+- Janela de início e término
+- Status da execução
+- Volume de dados processados
+- Origem e destino dos dados
+
+Esse modelo de log permite:
+
+- Auditoria técnica e regulatória  
+- Validação de SLA e janelas operacionais  
+- Investigação de falhas e incidentes  
+- Evidência de redundância de dados em cenários de BCP  
+
+A abordagem reflete práticas comuns em ambientes bancários e de missão crítica, onde **rastreabilidade e observabilidade são requisitos obrigatórios**.
+
+
 ---
 
 
