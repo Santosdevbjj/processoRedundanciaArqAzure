@@ -1,4 +1,6 @@
-# Criando Processos de Redundância de Arquivos na Azure. 
+# 🛡️ Redundância de Dados Híbrida: SQL Server On-Premises para Azure Data Lake
+
+**Azure Data Factory • Integração Híbrida • Governança de Dados • DataOps • Continuidade de Negócio (BCP)**
 
 
 ![Azure_Databricks01](https://github.com/user-attachments/assets/8ddea732-e045-4694-9207-87aeb9403938)
@@ -8,50 +10,287 @@
 
 ---
 
-**DESCRIÇÃO:**
 
-Neste projeto prático, o objetivo é criar um processo completo de redundância de arquivos utilizando recursos do Microsoft Azure. 
 
-Através do Azure Data Factory, você aprenderá a configurar uma infraestrutura necessária, incluindo conexões com ambientes on-premises (via Integration Runtime), bancos de dados SQL (Azure e locais) e armazenamento em blob storage. 
+📌 **Visão Geral**
 
-Aprenda o passo a passo, como criar linked services, datasets e pipelines para mover dados de uma tabela SQL on-premises para o Azure Data Lake, convertendo as informações em arquivos .TXT organizados por camadas (como raw/bronze). 
+Este projeto implementa uma arquitetura de redundância de dados em ambiente híbrido, com foco em Continuidade de Negócio (BCP), governança e conformidade.
 
-O hands-on também aborda validação, publicação e execução dos pipelines, com análise de performance e boas práticas de configuração.
+A solução realiza a ingestão segura de dados de um SQL Server on-premises para o Azure Data Lake Storage Gen2 (ADLS), utilizando uma arquitetura em camadas (Raw e Bronze).
+A orquestração é feita via Azure Data Factory (ADF) com Self-hosted Integration Runtime (SHIR), reproduzindo cenários reais de grandes organizações que operam sistemas legados críticos e precisam integrar dados à nuvem sem expor a infraestrutura interna.
+
+
+---
+
+🎯 **Problema de Negócio que o Projeto Resolve**
+
+Em ambientes altamente regulados (bancos, seguradoras, setor público), é comum encontrar os seguintes desafios:
+
+• Dependência excessiva de infraestrutura local, sem redundância geográfica
+
+• Risco de indisponibilidade operacional, causado por falhas físicas ou lógicas
+
+• Dificuldade de integrar dados legados à nuvem, devido a firewalls e políticas de segurança
+
+• Exigências regulatórias relacionadas à rastreabilidade, auditoria e recuperação de desastres
+
+
+Com base na minha trajetória de 15+ anos atuando em sistemas críticos bancários (Bradesco), projetei este fluxo para garantir que os dados sejam:
+
+• Replicados de forma segura
+
+• Armazenados com linhagem preservada
+
+• Prontos para recuperação em cenários de contingência
+
+• Aderentes a boas práticas de governança e compliance
 
 
 
 ---
 
+🎯 **Objetivos do Projeto**
 
-**Processo de Redundância de Arquivos na Azure**
+• Implementar pipelines de redundância híbrida usando Azure Data Factory
 
-Este projeto demonstra como implementar um **processo de redundância de arquivos** utilizando **Azure Data Factory**, **Self-hosted Integration Runtime**, **Azure Data Lake Storage Gen2** e **Databricks**.  
+• Demonstrar domínio sobre Self-hosted Integration Runtime (SHIR)
 
-O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**, convertendo-os em arquivos `.txt/.csv` organizados por camadas (`raw` e `bronze`), garantindo redundância, escalabilidade e boas práticas de integração híbrida.
+• Estruturar dados em camadas Raw e Bronze, preservando o dado original
 
----
+• Automatizar a promoção de dados utilizando Azure Databricks (PySpark)
 
- **Objetivos do Projeto**
-- Criar pipelines no **Azure Data Factory** para mover dados de SQL on-premises para o Data Lake.
-  
-- Configurar **Self-hosted Integration Runtime (IR)** para conectar ambientes locais ao Azure.
-  
-- Organizar dados em camadas (`raw` e `bronze`) para redundância e governança.  
-- Documentar e versionar todos os artefatos no GitHub.
-  
-- Demonstrar boas práticas de segurança, parametrização e monitoramento.  
+• Aplicar práticas de segurança, rastreabilidade e DataOps
+
+
 
 ---
 
- **Tecnologias Utilizadas**
- 
-- **Azure Data Factory (ADF)** → Orquestração de pipelines.  
-- **Self-hosted Integration Runtime (IR)** → Conexão segura com SQL on-premises.  
-- **Azure Data Lake Storage Gen2 (ADLS)** → Armazenamento em camadas.  
-- **Azure Key Vault** → Gerenciamento seguro de segredos.  
-- **Databricks** → Processamento e promoção de dados da camada `raw` para `bronze`.  
-- **SQL Server** → Base de dados on-premises.  
-- **GitHub** → Versionamento e documentação.  
+🛠️ **Decisões Técnicas & Justificativas (Trade-offs)**
+
+🔹 Self-hosted Integration Runtime (SHIR)
+
+Escolhido por ser o padrão corporativo para integração on-premises → cloud, permitindo:
+
+• Tráfego seguro de dentro para fora
+
+• Nenhuma exposição do banco à internet pública
+
+• Aderência a políticas de firewall corporativo
+
+
+🔹 **Azure Key Vault**
+
+Centraliza credenciais e strings de conexão, evitando:
+
+• Segredos hardcoded
+
+• Risco operacional e falhas de compliance
+
+
+🔹 **Arquitetura em Camadas (Raw → Bronze)**
+
+• Raw: preserva o dado original, sem transformação (auditoria e replay)
+
+• Bronze: organização mínima para consumo analítico
+
+• Facilita governança, debugging e evolução do pipeline
+
+
+🔹 **TXT/CSV vs Parquet**
+
+TXT/CSV na camada Raw para **fidelidade ao dado original**
+
+
+Processamento posterior no Databricks preparando o dado para formatos analíticos
+
+
+
+---
+
+🚀 **Tecnologias Utilizadas**
+
+• **Orquestração:** Azure Data Factory (ADF)
+
+• **Integração Híbrida:** Self-hosted Integration Runtime (SHIR)
+
+• **Armazenamento:** Azure Data Lake Storage Gen2
+
+• **Segurança:** Azure Key Vault
+
+• **Processamento:** Azure Databricks (PySpark)
+
+• **Fonte de Dados:** SQL Server (On-Premises)
+
+• **Versionamento:** GitHub
+
+
+
+---
+
+🖥️ **Requisitos de Hardware e Software**
+
+**Hardware (On-Premises)**
+
+• Máquina dedicada para o Self-hosted IR
+
+• Mínimo recomendado:
+
+• 8 GB de RAM
+
+• 2 vCPUs
+
+
+
+**Software**
+
+• Windows Server ou Windows 10+
+
+• SQL Server (Express ou superior)
+
+• Azure CLI
+
+• Navegador moderno
+
+
+**Recursos Azure**
+
+• Azure Data Factory
+
+• Azure Data Lake Storage Gen2
+
+• Azure Key Vault
+
+• Azure Databricks
+
+
+
+---
+
+📂 Estrutura do Repositório
+
+.
+├── adf/
+│   ├── pipelines/        # Pipelines de ingestão SQL → ADLS
+│   ├── datasets/         # Definições de origem e destino
+│   └── linkedServices/   # Conexões com SQL, ADLS e Key Vault
+│
+├── databricks/
+│   └── notebooks/        # PySpark para promoção Raw → Bronze
+│
+├── docs/
+│   ├── arquitetura/      # Diagramas da solução
+│   ├── imagens/          # Prints do ADF
+│   └── guia_instalacao_ir.md
+│
+├── scripts/
+│   ├── sql/              # DDL e dados de exemplo
+│   └── powershell/       # Automação do Self-hosted IR
+│
+└── README.md
+
+
+---
+
+▶️ **Como Executar o Projeto**
+
+> ⚠️ **Importante:**
+Este projeto simula um **ambiente híbrido real.**
+Não é um projeto “clone & run” e exige recursos Azure provisionados.
+
+
+
+## Passo a passo resumido
+
+**1. Configurar o ambiente on-premises**
+
+• Instalar SQL Server
+
+• Seguir o guia docs/guia_instalacao_ir.md para o SHIR
+
+
+
+**2. Provisionar recursos Azure**
+
+• Data Factory
+
+• Data Lake Gen2
+
+• Key Vault
+
+• Databricks
+
+
+
+**3. Configurar o Azure Data Factory**
+
+• Importar Linked Services
+
+• Importar Datasets
+
+• Importar Pipelines
+
+
+
+**4. Executar o pipeline**
+
+• Execução manual ou via Trigger
+
+• Validar arquivos na camada Raw e Bronze
+
+
+
+**5. Processamento com Databricks**
+   
+
+• Executar notebooks PySpark para promoção dos dados
+
+
+
+
+
+---
+
+🧠 **Principais Aprendizados**
+
+• Integração segura entre ambientes híbridos
+
+• Governança e preservação do dado original
+
+• Arquitetura orientada à continuidade de negócio
+
+• Uso do Spark para engenharia de promoção de dados
+
+
+
+---
+
+🔮 **Próximos Passos**
+
+• Implementar Incremental Load (Delta)
+
+• Integrar com Microsoft Purview
+
+• Criar CI/CD para Data Factory com Azure DevOps
+
+
+
+
+
+
+---
+
+🏁 Conclusão
+
+Este projeto demonstra uma solução realista, segura e governada para redundância de dados em ambientes híbridos, refletindo desafios encontrados em grandes corporações e traduzindo experiência em sistemas críticos para práticas modernas de engenharia de dados em cloud.
+
+
+---
+
+
+
+
+
+
 
 ---
 
@@ -61,104 +300,14 @@ O objetivo é copiar dados de um **SQL Server on-premises** para o **Data Lake**
 <img width="805" height="1587" alt="Screenshot_20251111-165706" src="https://github.com/user-attachments/assets/e3d4e52f-41ab-41d3-9996-1bd4865d7def" />
 
 
-
-
-
 ---
 
-## 📑 Explicação dos Arquivos
 
-### 📁 docs/
-- **imagens/adf_linked_services.png** → Print da configuração dos Linked Services no ADF.  
-- **imagens/adf_datasets.png** → Print da configuração dos Datasets no ADF.  
-- **arquitetura_azure.png** → Diagrama da arquitetura do projeto (ADF + IR + ADLS + Databricks).  
-- **guia_instalacao_ir.md** → Guia detalhado de instalação e configuração do Self-hosted IR.  
 
-### 📁 adf/linkedServices/
-- **LS_SQL_OnPrem.json** → Linked Service para conexão com SQL Server on-premises via IR.  
-- **LS_ADLS.json** → Linked Service para conexão com o Data Lake Storage Gen2.  
-- **LS_KeyVault.json** → Linked Service para acessar segredos armazenados no Azure Key Vault.  
 
-### 📁 adf/datasets/
-- **DS_SQL_OnPrem_<Tabela>.json** → Dataset de origem (tabela SQL on-premises).  
-- **DS_ADLS_RAW_TXT.json** → Dataset de destino na camada `raw` (arquivos TXT/CSV).  
-- **DS_ADLS_BRONZE_TXT.json** → Dataset de destino na camada `bronze`.  
 
-### 📁 adf/pipelines/
-- **pl_redundancia_sql_to_datalake.json** → Pipeline principal que copia dados do SQL para o Data Lake (`raw` → `bronze`).  
 
-### 📁 adf/triggers/
-- **tr_daily_0200_brt.json** → Trigger de execução diária às 02:00 BRT.  
-
-### 📁 databricks/
-- **notebooks/bronze_promote_<tabela>.ipynb** → Notebook Databricks para promover dados da camada `raw` para `bronze`.  
-- **configs/cluster_config.json** → Configuração de cluster Databricks (nós, versão Spark, auto-terminação).  
-
-### 📁 scripts/
-- **sql/create_sample_table.sql** → Script SQL para criar tabela de exemplo e inserir dados.  
-- **powershell/install_self_hosted_ir.ps1** → Script PowerShell para instalar o Self-hosted IR.  
-
-### 📁 logs/
-- **samples/run_metadata_example.json** → Exemplo de log de execução de pipeline (metadata: tempo, status, registros copiados).  
-
----
-
-##  Como Executar o Projeto
-
-1. **Preparação no Azure**
-   - Crie um **Resource Group**.  
-   - Crie um **Storage Account** com **Data Lake Gen2** habilitado.  
-   - Crie um **Data Factory**.  
-
-2. **Instalação do Self-hosted IR**
-   - Siga o guia em [`docs/guia_instalacao_ir.md`](docs/guia_instalacao_ir.md).  
-   - Instale o IR na máquina local e registre com a chave do ADF.  
-
-3. **Configuração no ADF**
-   - Importe os **Linked Services** (`LS_SQL_OnPrem.json`, `LS_ADLS.json`, `LS_KeyVault.json`).  
-   - Importe os **Datasets** (`DS_SQL_OnPrem_<Tabela>.json`, `DS_ADLS_RAW_TXT.json`, `DS_ADLS_BRONZE_TXT.json`).  
-   - Importe o **Pipeline** (`pl_redundancia_sql_to_datalake.json`).  
-   - Configure o **Trigger** (`tr_daily_0200_brt.json`).  
-
-4. **Execução**
-   - Execute manualmente o pipeline ou aguarde o trigger diário.  
-   - Verifique os arquivos gerados no ADLS (`raw` e `bronze`).  
-
-5. **Processamento com Databricks (opcional)**
-   - Configure o cluster com `databricks/configs/cluster_config.json`.  
-   - Execute o notebook `bronze_promote_<tabela>.ipynb` para promover dados.  
-
-6. **Validação**
-   - Consulte os logs em `logs/samples/run_metadata_example.json`.  
-   - Verifique prints em `docs/imagens/` para confirmar configuração.  
-
----
-
-## Prints do Projeto
-
-- Linked Services → `docs/imagens/adf_linked_services.png`  
-- Datasets → `docs/imagens/adf_datasets.png`  
-- Arquitetura → `docs/arquitetura_azure.png`  
-
----
-
-##  Boas Práticas
-- **Segurança:** Armazene segredos no Key Vault.  
-- **Governança:** Organize dados em camadas (`raw`, `bronze`).  
-- **Performance:** Ajuste paralelismo no Copy Activity.  
-- **Custos:** Use redundância LRS em conta de estudante.  
-- **Logs:** Sempre registre metadata de execução.  
-
----
-
-## Licença
-Este projeto está licenciado sob a licença MIT.  
-Sinta-se livre para usar e adaptar em seus próprios projetos.
-
----
-
-## Conclusão
-Este projeto demonstra uma solução prática e didática para **redundância de arquivos na Azure**, integrando ambientes locais e nuvem. 
+ 
 
 
 
