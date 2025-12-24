@@ -320,9 +320,12 @@ Não é um projeto “clone & run” e exige recursos Azure provisionados.
 
 ---
 
-🏁 Conclusão
+🏁 **Conclusão**
 
 Este projeto demonstra uma solução realista, segura e governada para redundância de dados em ambientes híbridos, refletindo desafios encontrados em grandes corporações e traduzindo experiência em sistemas críticos para práticas modernas de engenharia de dados em cloud.
+
+Mais do que uma prova técnica, este projeto demonstra capacidade de tomada de decisão em ambientes regulados, onde dados, risco e continuidade do negócio caminham juntos.
+
 
 
 
