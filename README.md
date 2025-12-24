@@ -198,6 +198,8 @@ Registros e exemplos de metadata de execução dos pipelines, utilizados para au
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exemplo real de metadata de execução de pipeline, contendo informações como status, duração, volume de dados processados e timestamps, fundamentais para ambientes regulados.
 
 
+---
+
 
 ### 🔍 Observabilidade, Logs e Auditoria
 
