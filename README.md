@@ -17,6 +17,7 @@
 Este projeto implementa uma arquitetura de redundância de dados em ambiente híbrido, com foco em Continuidade de Negócio (BCP), governança e conformidade.
 
 A solução realiza a ingestão segura de dados de um SQL Server on-premises para o Azure Data Lake Storage Gen2 (ADLS), utilizando uma arquitetura em camadas (Raw e Bronze).
+
 A orquestração é feita via Azure Data Factory (ADF) com Self-hosted Integration Runtime (SHIR), reproduzindo cenários reais de grandes organizações que operam sistemas legados críticos e precisam integrar dados à nuvem sem expor a infraestrutura interna.
 
 
