@@ -1,4 +1,4 @@
-# Criando Processos de Redundância de Arquivos na Azure.
+# Criando Processos de Redundância de Arquivos na Azure. 
 
 
 ![Azure_Databricks01](https://github.com/user-attachments/assets/8ddea732-e045-4694-9207-87aeb9403938)
