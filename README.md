@@ -166,27 +166,12 @@ Processamento posterior no Databricks preparando o dado para formatos analítico
 
 ---
 
-📂 Estrutura do Repositório
 
-.
-├── adf/
-│   ├── pipelines/        # Pipelines de ingestão SQL → ADLS
-│   ├── datasets/         # Definições de origem e destino
-│   └── linkedServices/   # Conexões com SQL, ADLS e Key Vault
-│
-├── databricks/
-│   └── notebooks/        # PySpark para promoção Raw → Bronze
-│
-├── docs/
-│   ├── arquitetura/      # Diagramas da solução
-│   ├── imagens/          # Prints do ADF
-│   └── guia_instalacao_ir.md
-│
-├── scripts/
-│   ├── sql/              # DDL e dados de exemplo
-│   └── powershell/       # Automação do Self-hosted IR
-│
-└── README.md
+## 📂 Estrutura de Pastas e Arquivos 
+
+
+<img width="805" height="1587" alt="Screenshot_20251111-165706" src="https://github.com/user-attachments/assets/e3d4e52f-41ab-41d3-9996-1bd4865d7def" />
+
 
 
 ---
@@ -284,30 +269,7 @@ Não é um projeto “clone & run” e exige recursos Azure provisionados.
 Este projeto demonstra uma solução realista, segura e governada para redundância de dados em ambientes híbridos, refletindo desafios encontrados em grandes corporações e traduzindo experiência em sistemas críticos para práticas modernas de engenharia de dados em cloud.
 
 
----
 
-
-
-
-
-
-
----
-
-## 📂 Estrutura de Pastas e Arquivos 
-
-
-<img width="805" height="1587" alt="Screenshot_20251111-165706" src="https://github.com/user-attachments/assets/e3d4e52f-41ab-41d3-9996-1bd4865d7def" />
-
-
----
-
-
-
-
-
-
- 
 
 
 
