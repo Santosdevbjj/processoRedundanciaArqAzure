@@ -6,4 +6,4 @@
   "status": "Succeeded",
   "rowsCopied": 3,
   "source": "SQL_OnPrem.SampleTable",
-  "sink": "ADLS.raw,
+  "sink": "ADLS.raw"
