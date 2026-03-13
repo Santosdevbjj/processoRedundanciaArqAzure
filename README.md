@@ -19,7 +19,7 @@ O problema real não é técnico — é de continuidade de negócio. E em ambien
 
 ## 2. Contexto
 
-Com 15 anos de experiência em sistemas críticos bancários (Bradesco), projetei este fluxo a partir de um cenário que é padrão em grandes corporações: **dados legados precisam chegar à nuvem sem expor a infraestrutura interna**.
+Com anos de experiência em sistemas críticos bancários (Bradesco), projetei este fluxo a partir de um cenário que é padrão em grandes corporações: **dados legados precisam chegar à nuvem sem expor a infraestrutura interna**.
 
 Não é possível abrir o SQL Server para a internet. Firewalls corporativos bloqueiam conexões de entrada. Políticas de segurança proíbem credenciais em texto plano. E mesmo assim, os dados precisam chegar ao Azure Data Lake todos os dias, com rastreabilidade completa e sem intervenção humana.
 
